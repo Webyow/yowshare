@@ -1,0 +1,5 @@
+package com.example.yowshare
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()

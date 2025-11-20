@@ -1,0 +1,39 @@
+name: yowshare
+description: "A cross-platform offline file sharing app like Snapdrop / AirDrop but powered by Flutter + Python-style HTTP server."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # ---------- Core Dependencies ----------
+  file_picker: ^8.0.0                 # Select multiple files
+  path: ^1.9.0                         # File path helpers
+  flutter_riverpod: ^2.5.1             # Global state (clean architecture)
+  http: ^1.2.0                         # HTTP communication if needed
+
+  # ---------- Backend / Discovery ----------
+  network_info_plus: ^4.0.0            # Helps detect device IP, subnet
+
+  # ---------- Local Notifications ----------
+  flutter_local_notifications: ^17.0.0 # Send/Receive progress notifications
+
+  # ---------- Share from OS (Android/iOS/macOS/Windows) ----------
+  receive_sharing_intent: ^1.6.9       # Handle files shared TO the app
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true

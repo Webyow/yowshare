@@ -1,0 +1,37 @@
+<variant
+    name="release"
+    package="com.example.yowshare"
+    minSdkVersion="24"
+    targetSdkVersion="36"
+    mergedManifest="build\intermediates\merged_manifest\release\processReleaseMainManifest\AndroidManifest.xml"
+    proguardFiles="build\intermediates\default_proguard_files\global\proguard-android-optimize.txt-8.9.1;C:\Program Files\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro;proguard-rules.pro"
+    partialResultsDir="build\intermediates\lint_vital_partial_results\release\lintVitalAnalyzeRelease\out"
+    desugaredMethodsFiles="C:\Users\it\.gradle\caches\8.12\transforms\2b3a1ab8daf4a7f694addacbb2f5212d\transformed\desugar_jdk_libs_configuration-2.0.3-desugar-lint.txt;C:\Users\it\.gradle\caches\8.12\transforms\a3b477765a6dec0dd0de7ba21c80f9ef\transformed\D8BackportedDesugaredMethods.txt">
+  <buildFeatures
+      coreLibraryDesugaring="true"
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifests="src\main\AndroidManifest.xml"
+        javaDirectories="src\main\java;src\release\java;src\main\kotlin;src\release\kotlin"
+        resDirectories="src\main\res;src\release\res"
+        assetsDirectories="src\main\assets;src\release\assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <manifestPlaceholders>
+    <placeholder
+        name="applicationName"
+        value="android.app.Application" />
+  </manifestPlaceholders>
+  <artifact
+      classOutputs="build\intermediates\javac\release\compileReleaseJavaWithJavac\classes;build\tmp\kotlin-classes\release;build\kotlinToolingMetadata;build\intermediates\compile_and_runtime_not_namespaced_r_class_jar\release\processReleaseResources\R.jar"
+      type="MAIN"
+      applicationId="com.example.yowshare"
+      generatedSourceFolders="build\generated\ap_generated_sources\release\out"
+      generatedResourceFolders="build\generated\res\resValues\release"
+      desugaredMethodsFiles="C:\Users\it\.gradle\caches\8.12\transforms\2b3a1ab8daf4a7f694addacbb2f5212d\transformed\desugar_jdk_libs_configuration-2.0.3-desugar-lint.txt;C:\Users\it\.gradle\caches\8.12\transforms\a3b477765a6dec0dd0de7ba21c80f9ef\transformed\D8BackportedDesugaredMethods.txt">
+  </artifact>
+</variant>
