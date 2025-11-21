@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../services/mdns_service.dart';
 import '../models/device.dart';
 import '../models/share_file.dart';
+import '../services/mdns_service.dart';
+import '../utils/platform_helper.dart';
 import 'send_progress.dart';
 
 class SendDevicesScreen extends StatefulWidget {
@@ -20,7 +21,9 @@ class _SendDevicesScreenState extends State<SendDevicesScreen> {
   @override
   void initState() {
     super.initState();
-    startDiscovery();
+    if (PlatformHelper.supportsMdns()) {
+      startDiscovery();
+    }
   }
 
   void startDiscovery() async {
@@ -40,32 +43,43 @@ class _SendDevicesScreenState extends State<SendDevicesScreen> {
     super.dispose();
   }
 
-  void toggleSelect(Device device) {
+  void toggleSelect(Device d) {
     setState(() {
-      if (selectedDevices.contains(device)) {
-        selectedDevices.remove(device);
+      if (selectedDevices.contains(d)) {
+        selectedDevices.remove(d);
       } else {
-        selectedDevices.add(device);
+        selectedDevices.add(d);
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    if (!PlatformHelper.supportsMdns()) {
+      return Scaffold(
+        appBar: AppBar(title: const Text("Select Devices")),
+        body: const Center(
+          child: Text(
+            "Device auto-discovery is not supported on Windows.\n"
+            "Use an Android/iOS receiver.",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white70, fontSize: 16),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Select Devices"),
-      ),
+      appBar: AppBar(title: const Text("Select Devices")),
       body: Column(
         children: [
           const SizedBox(height: 10),
+
           Expanded(
             child: devices.isEmpty
                 ? const Center(
-                    child: Text(
-                      "Searching devices...",
-                      style: TextStyle(color: Colors.white70),
-                    ),
+                    child: Text("Searching devices...",
+                        style: TextStyle(color: Colors.white70)),
                   )
                 : ListView.builder(
                     itemCount: devices.length,
@@ -75,8 +89,10 @@ class _SendDevicesScreenState extends State<SendDevicesScreen> {
 
                       return ListTile(
                         leading: const Icon(Icons.devices, color: Colors.white),
-                        title: Text(d.name, style: const TextStyle(color: Colors.white)),
-                        subtitle: const Text("Device Found", style: TextStyle(color: Colors.white70)),
+                        title: Text(d.name,
+                            style: const TextStyle(color: Colors.white)),
+                        subtitle: Text(d.ip,
+                            style: const TextStyle(color: Colors.white70)),
                         trailing: Checkbox(
                           value: isSelected,
                           onChanged: (_) => toggleSelect(d),
@@ -87,6 +103,7 @@ class _SendDevicesScreenState extends State<SendDevicesScreen> {
                     },
                   ),
           ),
+
           if (selectedDevices.isNotEmpty)
             Padding(
               padding: const EdgeInsets.all(16),
