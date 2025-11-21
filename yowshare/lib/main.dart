@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'router.dart';
+import 'theme.dart';
+import 'screens/home.dart';
+import 'services/notification_service.dart';
 
-void main() {
-  runApp(const ProviderScope(child: YowShareApp()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await NotificationService.init();
+
+  runApp(const YowShareApp());
 }
 
 class YowShareApp extends StatelessWidget {
@@ -12,17 +17,10 @@ class YowShareApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "YOWShare",
+      title: "YowShare",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color(0xFF0D0D0D),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF0D0D0D),
-          elevation: 0,
-        ),
-      ),
-      initialRoute: '/',
-      onGenerateRoute: AppRouter.generate,
+      theme: yowTheme,
+      home: const HomeScreen(),
     );
   }
 }

@@ -1,59 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
- "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
-	<!-- =============================== -->
-	<!-- APP CONFIGURATION -->
-	<!-- =============================== -->
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-
 	<key>CFBundleDisplayName</key>
-	<string>YOWShare</string>
-
+	<string>Yowshare</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
-
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-
 	<key>CFBundleName</key>
-	<string>YOWShare</string>
-
+	<string>yowshare</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
-
+	<key>CFBundleSignature</key>
+	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
-
-
-	<!-- =============================== -->
-	<!-- INTERFACE CONFIG -->
-	<!-- =============================== -->
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -61,52 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
-
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-
-
-	<!-- =============================== -->
-	<!-- YOWSHARE PERMISSIONS -->
-	<!-- =============================== -->
-
-	<!-- LAN Device Discovery -->
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>YOWShare requires access to the local network to discover and connect to nearby devices for file sharing.</string>
-
-	<!-- Bonjour / mDNS for LAN Discovery -->
-	<key>NSBonjourServices</key>
-	<array>
-		<string>_http._tcp</string>
-	</array>
-
-	<!-- File Access -->
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>YOWShare needs access to your photos to allow selecting and sending files.</string>
-
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>YOWShare needs access to save received files.</string>
-
-	<!-- Files / Documents Access -->
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Not used, but required by some iOS versions.</string>
-
-	<key>NSDocumentsFolderUsageDescription</key>
-	<string>YOWShare uses the Documents folder to store received files.</string>
-
-	<!-- Optional, prevents crashes when file picker used -->
-	<key>LSSupportsOpeningDocumentsInPlace</key>
-	<true/>
-
-	<!-- Background receiving support (optional future) -->
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>processing</string>
-	</array>
-
 </dict>
 </plist>
